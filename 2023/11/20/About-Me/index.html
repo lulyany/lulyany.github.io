@@ -611,6 +611,17 @@
       }
 
       document.querySelector('label[title="Upload Image"]').setAttribute('aria-label', 'Upload your image.');
+      
+      var targetInput = document.querySelector('input[type="text"][placeholder="Search GIF"]');
+      targetInput.setAttribute('id', 'search-gif-id');
+      var newLabel =  document.createElement('label')
+      newLabel.setAttribute('aria-label', 'Search gif.');
+      newLabel.setAttribute('for', 'search-gif-id');
+      console.log("new label"+ newLabel.innerHTML);
+      console.log("target" + targetInput.innerHTML);
+      document.querySelector(".wl-gif-popup").insertBefore(newLabel, targetInput);
+
+
     </script>
 
 
