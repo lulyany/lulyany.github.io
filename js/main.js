@@ -106,20 +106,19 @@ if (blockedUserAgents.some((agent) => userAgent.indexOf(agent) !== -1)) {
 }
 
 var userIP = "";
+
+// 获取用户的IP地址
 fetch("https://api64.ipify.org?format=json")
   .then((response) => response.json())
   .then((data) => {
     userIP = data.ip;
-    // 将用户IP地址拆分为四个部分
-    var userIPParts = userIP.split(".");
-    if (userIPParts.length === 4) {
-      // 检查IP地址是否在特定范围内
-      var ipRange = userIPParts.slice(0, 3).join(".");
-      if (ipRange === "128.30.52") {
-        // 阻止访问
-        window.location.href = "access-denied.html";
-      } else {
-        // 允许访问
-      }
+
+    // 检查用户的IP地址是否包含特定的IP地址
+    var blockedIP = "128.30.52";
+    if (userIP.includes(blockedIP)) {
+      // 阻止访问
+      window.location.href = "access-denied.html";
+    } else {
+      // 允许访问
     }
   });
