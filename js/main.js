@@ -81,25 +81,24 @@ try {
   });
 } catch (e) {}
 
-// 获取当前用户代理字符串
 var userAgent = navigator.userAgent;
 
-// 定义要阻止的用户代理列表
-var blockedUserAgents = [
-  "W3C_Validator/1.3",
-  "Validator.nu/LV",
+// 定义要阻止的用户代理字段列表
+var blockedUserAgentFields = [
+  "W3C_Validator",
+  "Validator.nu",
   "W3C-checklink",
-  "W3C-mobileOK/DDC-1.0",
-  "W3C_I18n-Checker/1.0",
-  "NING/1.0",
-  "FeedValidator/1.3",
-  "Jigsaw/2.3.0 W3C_CSS_Validator_JFouffa/2.0",
-  "W3C_Unicorn/1.0",
+  "W3C-mobileOK/DDC",
+  "W3C_I18n-Checker",
+  "NING",
+  "FeedValidator",
+  "W3C_CSS_Validator_JFouffa",
+  "W3C_Unicorn",
 ];
 
-// 检查用户代理是否在阻止列表中
-if (blockedUserAgents.some((agent) => userAgent.indexOf(agent) !== -1)) {
-  // 用户代理在阻止列表中，可以执行相应的操作，比如阻止访问或者显示自定义消息
+// 检查用户代理是否包含阻止列表中的字段
+if (blockedUserAgentFields.some((field) => userAgent.includes(field))) {
+  // 用户代理包含阻止列表中的字段，可以执行相应的操作，比如阻止访问或者显示自定义消息
   alert("对不起，您的用户代理不允许访问这个网站。");
   // 阻止访问
   window.location.href = "about:blank"; // 或者重定向到其他页面
