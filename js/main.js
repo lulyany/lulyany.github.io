@@ -104,3 +104,22 @@ if (blockedUserAgents.some((agent) => userAgent.indexOf(agent) !== -1)) {
   // 阻止访问
   window.location.href = "about:blank"; // 或者重定向到其他页面
 }
+
+var userIP = "";
+fetch("https://api64.ipify.org?format=json")
+  .then((response) => response.json())
+  .then((data) => {
+    userIP = data.ip;
+    // 将用户IP地址拆分为四个部分
+    var userIPParts = userIP.split(".");
+    if (userIPParts.length === 4) {
+      // 检查IP地址是否在特定范围内
+      var ipRange = userIPParts.slice(0, 3).join(".");
+      if (ipRange === "128.30.52") {
+        // 阻止访问
+        window.location.href = "access-denied.html";
+      } else {
+        // 允许访问
+      }
+    }
+  });
