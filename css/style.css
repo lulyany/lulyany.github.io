@@ -6622,6 +6622,7 @@ html.is-animating .swup-progress-icon {
   cursor: pointer;
   line-height: 2;
   color: #fff;
+  display: inline;
 }
 .home-banner-container .content .social-contacts .social-contact-item-qr:last-child {
   margin-right: 0;
