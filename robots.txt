@@ -1,2 +1,8 @@
-User-agent: W3C_Validator
+User-Agent: W3C-checklink
+Disallow: /
+
+User-Agent: W3C_Validator
+Disallow: /
+
+User-Agent: W3C_CSS_Validator
 Disallow: /
