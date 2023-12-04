@@ -1,0 +1,2 @@
+User-agent: W3C_Validator
+Disallow: /
